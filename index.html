@@ -48,6 +48,10 @@
   <tbody>
   <!--YES! I know this isn't what you asked for. but im lost. and my brain is done for the day. I did give the JS
   a try though. and I made a comment so that's one good thing.-->
+
+  <!--
+    KEY: TRUE You get an A for effort! See my solution at bottom.
+  -->
   <tr>
     <td>Jimmy</td>
     <td>Page</td>
@@ -78,24 +82,64 @@
   </tbody>
 </table>
 </p>
-<script>
 
-  // *** ENTER YOUR CODE HERE ***
-  // Create a list of Person objects as described in the README
-  /*
-  Jimmy Page, 62, 00821
-
-  Rick Nielsen, 57, 61016
-
-  Joe Walsh, 58, 90001
-
-  Lemmy Kilmister, 57, 21120
-
-   */
-
-  // *** ENTER YOUR CODE HERE ***
-  // Write the JavaScript to return a valid table row containing the data for a given Person object
-
-</script>
 </body>
 </html>
+
+<!--
+
+  KEY: There were multiple ways to accomplish this.
+
+  One way is: 
+  1) Create an array of person objects
+  2) Define a function I could pass a person object and get back a string that represents a table row (<tr>)
+
+        <script>
+            // Build an array of People
+            var people = [
+                {
+                    firstName: "Jimmy",
+                    lastName: "Page",
+                    age: 62,
+                    zipCode: "00821"
+
+                },
+                {
+                    firstName: "Rick",
+                    lastName: "Nielsen",
+                    age: 57,
+                    zipCode: "61016"
+
+                },
+                {
+                    firstName: "Joe",
+                    lastName: "Walsh",
+                    age: 58,
+                    zipCode: "90001"
+
+                },
+                {
+                    firstName: "Lemmy",
+                    lastName: "Kilmister",
+                    age: 57,
+                    zipCode: "21120"
+
+                }
+            ];
+
+            // Write the JavaScript to return a valid table row containing the data for a given Person object
+            function makeTRFromPerson(person) {
+                return "<tr><td>" + person.firstName + "</td><td>" + person.lastName + "</td><td>" + person.age + "</td><td>" + person.zipCode + "</td></tr>";
+            }
+    </script>
+
+  KEY: Then down in the HTML <table> I just loop through the array, and
+    use document.Write() with makeTRFromPerson() to spit out the rows.
+
+    <script>
+        for (var i = 0; i < people.length; i++) {
+            document.write(makeTRFromPerson(people[i]));
+        }
+    </script>
+
+    -->
